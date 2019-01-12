@@ -5,12 +5,14 @@ import android.os.Bundle;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 
+import com.example.nimai.bawd_atutorialapp.Adapter.courseAdapter;
 import com.example.nimai.bawd_atutorialapp.R;
 
 public class DashboardActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private StaggeredGridLayoutManager staggeredGridLayoutManager;
+    private courseAdapter adapter;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -19,5 +21,8 @@ public class DashboardActivity extends AppCompatActivity {
         recyclerView = findViewById(R.id.courserecylerview);
         staggeredGridLayoutManager = new StaggeredGridLayoutManager(1,StaggeredGridLayoutManager.VERTICAL);
         recyclerView.setLayoutManager(staggeredGridLayoutManager);
+
+        adapter = new courseAdapter();
+        recyclerView.setAdapter(adapter);
     }
 }

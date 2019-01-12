@@ -2,11 +2,19 @@ package com.example.nimai.bawd_atutorialapp.Model;
 
 import android.content.Context;
 
-public class course {
+public class Course {
 
     private String courseName;
     private String courseImage;
     private String courseAuthorName;
+
+    public Course(String coursename, String courseName, String courseImage) {
+        this.courseName = courseName;
+        this.courseImage = courseImage;
+        this.courseAuthorName = courseAuthorName;
+    }
+
+
 
     public int getImageResourceId(Context context){
         return context.getResources().getIdentifier(this.courseImage,"drawable",context.getPackageName());
