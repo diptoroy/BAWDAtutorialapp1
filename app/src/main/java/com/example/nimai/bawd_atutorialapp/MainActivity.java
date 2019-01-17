@@ -11,6 +11,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.TextView;
 
+import com.example.nimai.bawd_atutorialapp.Controller.DashboardActivity;
 import com.example.nimai.bawd_atutorialapp.Controller.RegisterPage;
 
 public class MainActivity extends AppCompatActivity {
@@ -29,7 +30,7 @@ public class MainActivity extends AppCompatActivity {
         registerTextview.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(MainActivity.this,RegisterPage.class);
+                Intent intent = new Intent(MainActivity.this,DashboardActivity.class);
                 startActivity(intent);
             }
         });

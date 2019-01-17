@@ -5,6 +5,7 @@ import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -14,9 +15,10 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class courseAdapter extends RecyclerView.Adapter<courseAdapter.ViewHolder> {
+public class courseAdapter extends RecyclerView.Adapter<courseAdapter.ViewHolder> implements View.OnClickListener {
 
     private CourseDate courseDate = new CourseDate();
+    private AdapterView.OnItemClickListener itemClickListener;
 
     private ArrayList<Course> courseArrayList;
     @NonNull
@@ -45,6 +47,11 @@ public class courseAdapter extends RecyclerView.Adapter<courseAdapter.ViewHolder
     @Override
     public int getItemCount() {
         return courseDate.courselist().size();
+    }
+
+    @Override
+    public void onClick(View v) {
+        
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

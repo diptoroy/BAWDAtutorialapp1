@@ -8,10 +8,11 @@ public class Course {
     private String courseImage;
     private String courseAuthorName;
 
-    public Course(String coursename, String courseName, String courseImage) {
+    public Course(String courseName, String courseImage, String courseAuthorName) {
         this.courseName = courseName;
         this.courseImage = courseImage;
         this.courseAuthorName = courseAuthorName;
+
     }
 
 
