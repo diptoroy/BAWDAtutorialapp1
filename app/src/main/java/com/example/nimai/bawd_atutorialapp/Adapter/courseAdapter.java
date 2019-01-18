@@ -15,12 +15,12 @@ import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 
-public class courseAdapter extends RecyclerView.Adapter<courseAdapter.ViewHolder> implements View.OnClickListener {
+public class courseAdapter extends RecyclerView.Adapter<courseAdapter.ViewHolder>{
 
     private CourseDate courseDate = new CourseDate();
-    private AdapterView.OnItemClickListener itemClickListener;
+    private OnItemClickListener itemClickListener;
 
-    private ArrayList<Course> courseArrayList;
+    //private ArrayList<Course> courseArrayList;
     @NonNull
     @Override
     public courseAdapter.ViewHolder onCreateViewHolder( ViewGroup parent, int position) {
@@ -49,21 +49,30 @@ public class courseAdapter extends RecyclerView.Adapter<courseAdapter.ViewHolder
         return courseDate.courselist().size();
     }
 
-    @Override
-    public void onClick(View v) {
-        
+    public void setOnClickListener(OnItemClickListener onItemClickListener){
+        this.itemClickListener = onItemClickListener;
     }
 
-    public class ViewHolder extends RecyclerView.ViewHolder {
+    public class ViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
         public TextView coursename;
         public ImageView courseImage,Authorimage;
         public ViewHolder( View itemView) {
             super(itemView);
+            itemView.setOnClickListener(this);
 
             coursename = itemView.findViewById(R.id.coursename);
             courseImage = itemView.findViewById(R.id.courseimage);
             Authorimage = itemView.findViewById(R.id.authorname);
         }
+
+        @Override
+        public void onClick(View view) {
+            itemClickListener.onItemClick(view,getAdapterPosition());
+
+        }
+    }
+    public interface OnItemClickListener{
+        void onItemClick(View view,int position);
     }
 }

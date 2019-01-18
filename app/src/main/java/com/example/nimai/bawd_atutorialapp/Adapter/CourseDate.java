@@ -11,7 +11,7 @@ public class CourseDate {
         ArrayList<Course> list = new ArrayList<>();
         for(int i = 0;i<coursenames.length;i++){
             Course course = new Course(coursenames[i],coursenames[i].replace(" ","")
-                    .toLowerCase(),"ic_launcher_round");
+                    .toLowerCase(),"courseviewimage");
             list.add(course);
         }
         return list;

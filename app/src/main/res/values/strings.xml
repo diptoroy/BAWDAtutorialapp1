@@ -10,5 +10,7 @@
     <string name="rEmail">Email</string>
     <string name="rPhoneno">Phone number</string>
     <string name="rPassword">Password</string>
+    <string name="gridshow">Gridshow</string>
+    <string name="listshow">Listshow</string>
     <string name="rRepassword">Re enter password</string>
 </resources>

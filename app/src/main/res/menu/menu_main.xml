@@ -3,8 +3,9 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.nimai.bawd_atutorialapp.MainActivity">
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_toggle"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:icon="@drawable/ic_grid_on_black_24dp"
+        android:title="@string/gridshow"
+        app:showAsAction="always" />
 </menu>

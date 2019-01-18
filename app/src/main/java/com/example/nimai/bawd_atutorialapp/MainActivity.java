@@ -9,6 +9,7 @@ import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.nimai.bawd_atutorialapp.Controller.DashboardActivity;
@@ -18,6 +19,7 @@ public class MainActivity extends AppCompatActivity {
 
 
     private TextView registerTextview;
+    private Button lginbtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,8 +28,10 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        registerTextview = findViewById(R.id.registerbtn);
-        registerTextview.setOnClickListener(new View.OnClickListener() {
+
+
+        lginbtn = findViewById(R.id.loginbtn);
+        lginbtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(MainActivity.this,DashboardActivity.class);
@@ -61,7 +65,7 @@ public class MainActivity extends AppCompatActivity {
         int id = item.getItemId();
 
         //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
+        if (id == R.id.action_toggle) {
             return true;
         }
 
