@@ -30,7 +30,6 @@
         android:layout_alignBottom="@+id/courseimage"
         android:text="Bawd-A tutorial app"
         android:textColor="#000000"
-        android:background="#00c8ff"
         android:textSize="18sp"
         android:textStyle="bold"
         android:layout_alignStart="@+id/courseimage"

@@ -1,6 +1,11 @@
 package com.example.nimai.bawd_atutorialapp.Adapter;
 
+import android.content.Context;
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.support.annotation.NonNull;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.graphics.Palette;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -20,6 +25,7 @@ public class courseAdapter extends RecyclerView.Adapter<courseAdapter.ViewHolder
     private CourseDate courseDate = new CourseDate();
     private OnItemClickListener itemClickListener;
 
+
     //private ArrayList<Course> courseArrayList;
     @NonNull
     @Override
@@ -31,16 +37,29 @@ public class courseAdapter extends RecyclerView.Adapter<courseAdapter.ViewHolder
     }
 
     @Override
-    public void onBindViewHolder(courseAdapter.ViewHolder viewHolder, int position) {
+    public void onBindViewHolder(final courseAdapter.ViewHolder viewHolder, int position) {
+
+        final Context context = viewHolder.coursename.getContext();
 
         Course course = courseDate.courselist().get(position);
         viewHolder.coursename.setText(course.getCourseName());
-        Picasso.with(viewHolder.coursename.getContext())
-                .load(course.getImageResourceId(viewHolder.coursename.getContext()))
+        Picasso.with(context)
+                .load(course.getImageResourceId(context))
                 .into(viewHolder.courseImage);
         Picasso.with(viewHolder.coursename.getContext())
-                .load(course.getImageResourceId(viewHolder.coursename.getContext()))
+                .load(course.getImageResourceId(context))
                 .into(viewHolder.Authorimage);
+
+        Bitmap photo = BitmapFactory.decodeResource(context.getResources(),course.getImageResourceId(context));
+        Palette.from(photo).generate(new Palette.PaletteAsyncListener() {
+            @Override
+            public void onGenerated(Palette palette) {
+
+                int bgcolor = palette.getMutedColor(ContextCompat.getColor(context,android.R.color.black));
+                viewHolder.coursename.setBackgroundColor(bgcolor);
+
+            }
+        });
 
     }
 
